@@ -41,11 +41,11 @@ const Index = () => {
       <section className="relative h-screen flex items-center justify-center bg-gradient-to-b from-slate-900 to-primary">
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2086&auto=format&fit=crop"
-            alt="Campus Buildings"
-            className="w-full h-full object-cover opacity-30"
+            src="/lovable-uploads/62e25fc0-c07b-46b2-8fa9-ec0edcda4a7b.png"
+            alt="VIT University Campus Entrance"
+            className="w-full h-full object-cover opacity-90"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
         </div>
         <div className="container max-w-5xl mx-auto px-4 relative z-10 text-white text-center animate-fade-in">
           <h1 className="text-4xl md:text-6xl font-display font-bold leading-tight mb-6">
