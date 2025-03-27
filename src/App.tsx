@@ -13,6 +13,8 @@ import Cells from "./pages/Cells";
 import FacilityDetail from "./pages/FacilityDetail";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +34,8 @@ const App = () => (
               <Route path="/seminar-halls" element={<SeminarHalls />} />
               <Route path="/cells" element={<Cells />} />
               <Route path="/facility/:type/:id" element={<FacilityDetail />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignUp />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

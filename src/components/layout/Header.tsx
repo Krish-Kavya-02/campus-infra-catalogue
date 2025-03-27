@@ -2,8 +2,9 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Menu, X, Search } from "lucide-react";
+import { Menu, X, Search, LogIn } from "lucide-react";
 import SearchBar from "../ui/SearchBar";
+import { Button } from "../ui/button";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,32 +45,30 @@ const Header = () => {
       <div className="container flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <span className="text-xl font-display font-bold text-primary">
-            Campus Infrastructures
+            Campus Infrastructure
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center space-x-6">
-          {menuItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={cn(
-                "text-sm transition-colors hover:text-primary font-medium",
-                location.pathname === item.path
-                  ? "text-primary"
-                  : "text-muted-foreground"
-              )}
-            >
-              {item.name}
-            </Link>
-          ))}
+        <div className="hidden md:flex items-center space-x-4">
           <button
             onClick={() => setSearchOpen(!searchOpen)}
             className="p-2 rounded-full hover:bg-muted transition-colors"
+            aria-label="Search"
           >
             <Search size={18} />
           </button>
-        </nav>
+          
+          <Link to="/login">
+            <Button variant="outline" size="sm" className="gap-2">
+              <LogIn size={16} />
+              Login
+            </Button>
+          </Link>
+          
+          <Link to="/signup">
+            <Button size="sm">Sign Up</Button>
+          </Link>
+        </div>
 
         <div className="flex items-center md:hidden">
           <button
@@ -106,6 +105,18 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
+              <div className="pt-2 border-t border-gray-100 flex flex-col gap-3">
+                <Link to="/login" className="w-full">
+                  <Button variant="outline" className="w-full">
+                    Login
+                  </Button>
+                </Link>
+                <Link to="/signup" className="w-full">
+                  <Button className="w-full">
+                    Sign Up
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
