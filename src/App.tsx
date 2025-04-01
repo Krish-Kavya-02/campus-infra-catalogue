@@ -16,6 +16,7 @@ import Footer from "./components/layout/Footer";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard";
+import Venues from "./pages/Venues";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/venues" element={<Venues />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

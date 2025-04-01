@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -205,14 +204,9 @@ const Dashboard = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuLink
-                    className={cn(
-                      "px-4 py-2 rounded-full text-white/80 hover:text-white transition-colors"
-                    )}
-                    href="/venues"
-                  >
+                  <Link to="/venues" className="px-4 py-2 rounded-full text-white/80 hover:text-white transition-colors block">
                     Venues
-                  </NavigationMenuLink>
+                  </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <NavigationMenuLink
