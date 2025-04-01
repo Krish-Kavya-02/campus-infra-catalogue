@@ -1,11 +1,51 @@
 
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowLeft } from "lucide-react";
+import { toast } from "@/components/ui/use-toast";
 
 const SignUp = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Basic form validation
+    if (!firstName || !lastName || !email || !password || !confirmPassword) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    if (password !== confirmPassword) {
+      toast({
+        title: "Error",
+        description: "Passwords do not match",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    // Simulate signup success
+    toast({
+      title: "Account Created",
+      description: "Welcome to Campus Infrastructure Explorer!",
+    });
+    
+    // Redirect to dashboard
+    navigate("/dashboard");
+  };
+
   return (
     <div className="min-h-screen pt-32 pb-16 flex justify-center">
       <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-sm border">
@@ -18,7 +58,7 @@ const SignUp = () => {
         
         <h1 className="text-2xl font-display font-bold mb-6 text-center">Create an Account</h1>
         
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit}>
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
               <label htmlFor="firstName" className="text-sm font-medium">
@@ -28,6 +68,8 @@ const SignUp = () => {
                 id="firstName"
                 placeholder="John"
                 required
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
               />
             </div>
             
@@ -39,6 +81,8 @@ const SignUp = () => {
                 id="lastName"
                 placeholder="Doe"
                 required
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
               />
             </div>
           </div>
@@ -52,6 +96,8 @@ const SignUp = () => {
               type="email"
               placeholder="you@example.com"
               required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           
@@ -64,6 +110,8 @@ const SignUp = () => {
               type="password"
               placeholder="••••••••"
               required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           
@@ -76,6 +124,8 @@ const SignUp = () => {
               type="password"
               placeholder="••••••••"
               required
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
           

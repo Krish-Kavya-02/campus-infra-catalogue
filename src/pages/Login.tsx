@@ -1,11 +1,39 @@
 
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowLeft } from "lucide-react";
+import { toast } from "@/components/ui/use-toast";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Basic form validation
+    if (!email || !password) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    // Simulate login success
+    toast({
+      title: "Login Successful",
+      description: "Welcome back!",
+    });
+    
+    // Redirect to dashboard
+    navigate("/dashboard");
+  };
+
   return (
     <div className="min-h-screen pt-32 pb-16 flex justify-center">
       <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-sm border">
@@ -18,7 +46,7 @@ const Login = () => {
         
         <h1 className="text-2xl font-display font-bold mb-6 text-center">Login</h1>
         
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit}>
           <div className="space-y-2">
             <label htmlFor="email" className="text-sm font-medium">
               Email
@@ -28,6 +56,8 @@ const Login = () => {
               type="email"
               placeholder="you@example.com"
               required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           
@@ -45,6 +75,8 @@ const Login = () => {
               type="password"
               placeholder="••••••••"
               required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           

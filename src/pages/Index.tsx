@@ -37,8 +37,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-gradient-to-b from-slate-900 to-primary">
+      {/* Hero Section with enhanced decoration */}
+      <section className="relative h-screen flex items-center justify-center bg-gradient-to-b from-slate-900 to-primary overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <img
             src="/lovable-uploads/62e25fc0-c07b-46b2-8fa9-ec0edcda4a7b.png"
@@ -46,8 +46,15 @@ const Index = () => {
             className="w-full h-full object-cover opacity-90"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+          
+          {/* Decorative elements */}
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxjaXJjbGUgY3g9IjIiIGN5PSIyIiByPSIxIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=')] opacity-40"></div>
         </div>
+        
         <div className="container max-w-5xl mx-auto px-4 relative z-10 text-white text-center animate-fade-in">
+          <div className="p-2 inline-block rounded-full bg-white/10 backdrop-blur-sm mb-4">
+            <span className="text-sm font-medium px-3 py-1">Discover Our Campus</span>
+          </div>
           <h1 className="text-4xl md:text-6xl font-display font-bold leading-tight mb-6">
             Explore Our Campus Infrastructure
           </h1>
@@ -55,6 +62,14 @@ const Index = () => {
             Discover state-of-the-art facilities, versatile spaces, and
             specialized resources designed to enhance your academic experience.
           </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-blue-500 rounded-lg blur opacity-50 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+              <a href="#categories" className="relative px-7 py-3 bg-black rounded-lg leading-none flex items-center">
+                <span className="text-white group-hover:text-white transition duration-200">Discover Facilities</span>
+              </a>
+            </div>
+          </div>
         </div>
         <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
           <a href="#categories" className="text-white/80 hover:text-white">
