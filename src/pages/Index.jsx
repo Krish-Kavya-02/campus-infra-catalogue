@@ -11,17 +11,20 @@ const Index = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-slide-in-bottom");
+            entry.target.classList.add("animate-fade-in");
+            entry.target.style.opacity = "1";
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
 
     const childElements = featuredRef.current?.children;
     if (childElements) {
-      Array.from(childElements).forEach((child) => {
+      Array.from(childElements).forEach((child, index) => {
+        // Add staggered animation delay
+        child.style.animationDelay = `${index * 150}ms`;
         observer.observe(child);
       });
     }
@@ -113,7 +116,7 @@ const Index = () => {
                 image={category.image}
                 count={category.count}
                 link={category.link}
-                className="opacity-0"
+                className="opacity-0 transition-opacity duration-500"
               />
             ))}
           </div>
